@@ -13,7 +13,7 @@ pipeline {
 	
 		stage('Build') {
 			steps {
-				sh 'javac HelloWorld.jav'
+				sh 'javac HelloWorld.java'
 			}
 		}
 		stage('Package') {
@@ -25,18 +25,18 @@ pipeline {
 			steps {
 				sh """
 					docker build -t $DOCKER_iMAGE .
+				"""
 			}
 		}
 	}
 
-		post {
-			success {
-				echo 'Build completed successfully.'
-			}
-			failure {
-				echo 'Build failed.'
-			}
-
+	post {
+		success {
+			echo 'Build completed successfully.'
 		}
-	
+		failure {
+			echo 'Build failed.'
+		}
+
+	}
 }
