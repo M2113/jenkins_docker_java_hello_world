@@ -4,4 +4,4 @@ WORKDIR /app
 
 COPY HelloWorld.class /app/HelloWorld.class
 
-CMD["java","HelloWorld"]
+
